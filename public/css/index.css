@@ -1,0 +1,77 @@
+img {
+  max-height: 400px;
+}
+
+body {
+  background: hsl(0, 0%, 96%);
+}
+
+section {
+  background: white;
+  margin: 2rem auto;
+  padding: 1.3rem;
+  border-radius: 3px;
+  box-shadow: 0 0 5px hsl(0, 0%, 90%);
+}
+
+footer {
+  background: hsl(0, 0%, 13%);
+  color: white;
+  padding: 2rem 3rem;
+}
+
+footer ul.nav {
+  padding: 0;
+  margin: 0;
+}
+
+footer a {
+  color: white;
+}
+
+main {
+  margin: 2% 3%;
+}
+
+nav {
+  background: white;
+  box-shadow: 0 0 5px hsl(0, 0%, 90%);
+}
+
+nav a {
+  color: black;
+}
+
+.card {
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+}
+
+.cart-item__img {
+  max-width: 10rem;
+}
+
+.cart-item__img img {
+  max-width: 100%;
+}
+
+.cart-item__name {
+  max-width: 6rem;
+  align-items: center;
+}
+
+.cart-item__price {
+  max-width: 6rem;
+}
+
+.cart-item__quantity {
+  max-width: 6rem;
+}
+
+.cart-item__total {
+  max-width: 6rem;
+}
+
+.cart-item__action {
+  max-width: 120px;
+}
