@@ -1,8 +1,8 @@
+require("./fn/dbconnect");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const sassMiddleware = require("node-sass-middleware");
 
 const indexRouter = require("./routes/index");
 
@@ -20,14 +20,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, "public"),
-    dest: path.join(__dirname, "public"),
-    indentedSyntax: false, // true = .sass and false = .scss
-    outputStyle: "compressed"
-  })
-);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
