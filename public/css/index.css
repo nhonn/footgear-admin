@@ -1,77 +1,117 @@
-img {
-  max-height: 400px;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans');
+html,
 body {
   background: hsl(0, 0%, 96%);
-}
-
-section {
-  background: white;
-  margin: 2rem auto;
-  padding: 1.3rem;
-  border-radius: 3px;
-  box-shadow: 0 0 5px hsl(0, 0%, 90%);
+  height: 100%;
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
 footer {
   background: hsl(0, 0%, 13%);
   color: white;
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
+  bottom: 0px;
+  width: 100%;
 }
 
-footer ul.nav {
-  padding: 0;
-  margin: 0;
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:active {
+  color: black;
+  text-decoration: none;
 }
 
 footer a {
-  color: white;
+  color: white !important;
+  text-decoration: none;
 }
 
 main {
-  margin: 2% 3%;
+  min-height: 70vh;
+  margin: 1rem auto;
 }
 
-nav {
+#banner img {
+  max-height: 400px;
+}
+
+.paper {
+  margin: 0.25rem auto;
+  padding: 1rem;
   background: white;
   box-shadow: 0 0 5px hsl(0, 0%, 90%);
 }
 
-nav a {
+a.card {
   color: black;
 }
 
-.card {
-  margin: 1rem 1rem;
-  padding: 1rem 1rem;
+a:hover.card {
+  color: black;
+  text-decoration: none;
 }
 
-.cart-item__img {
-  max-width: 10rem;
+.flat {
+  box-shadow: 0 0 0px hsl(0, 0%, 100%) !important;
+  border-width: 0px;
 }
 
-.cart-item__img img {
-  max-width: 100%;
+.navbar {
+  background: hsl(0, 0%, 13%);
 }
 
-.cart-item__name {
-  max-width: 6rem;
-  align-items: center;
+.navbar i {
+  color: hsl(0, 0%, 96%);
 }
 
-.cart-item__price {
-  max-width: 6rem;
+.price {
+  color: #ff1919;
+  font-weight: 600;
 }
 
-.cart-item__quantity {
-  max-width: 6rem;
+table {
+  background: white;
 }
 
-.cart-item__total {
-  max-width: 6rem;
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
 }
 
-.cart-item__action {
-  max-width: 120px;
+h5 span {
+  padding: 0.3rem;
+  border-radius: 5px;
+  color: white;
+  background: #141e30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #243b55,
+    #141e30
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #243b55,
+    #141e30
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0px;
+}
+
+section {
+  min-height: 70vh;
 }

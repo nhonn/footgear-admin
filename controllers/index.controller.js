@@ -1,7 +1,7 @@
-"use strict";
+'use strict'
 
 module.exports = {
   getHomepage: (req, res) => {
-    res.status(200).render("index");
+    res.status(200).render('index', { title: 'Trang chủ' })
   }
-};
+}
