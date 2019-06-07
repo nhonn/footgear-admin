@@ -2,6 +2,6 @@
 
 module.exports = {
   getHomepage: (req, res) => {
-    res.status(200).render('home', { title: 'Trang chủ' })
+    res.status(200).render('home/index', { title: 'Trang chủ' })
   }
 }

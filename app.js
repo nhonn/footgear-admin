@@ -39,18 +39,18 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')))
 
 const indexRouter = require('./routes/index.route')
-const analysisRouter = require('./routes/user.route')
-const productRouter = require('./routes/product.route')
+// const analysisRouter = require('./routes/user.route')
+// const productRouter = require('./routes/product.route')
 const brandRouter = require('./routes/brand.route')
-const orderRouter = require('./routes/order.route')
-const apiRouter = require('./routes/api.route')
+// const orderRouter = require('./routes/order.route')
+// const apiRouter = require('./routes/api.route')
 
 app.use('/', indexRouter)
-app.use('/analysis', analysisRouter)
-app.use('/product', productRouter)
+// app.use('/analysis', analysisRouter)
+// app.use('/product', productRouter)
 app.use('/brand', brandRouter)
-app.use('/cart', orderRouter)
-app.use('/api', apiRouter)
+// app.use('/cart', orderRouter)
+// app.use('/api', apiRouter)
 
 // error handler
 app.use(function(err, req, res) {

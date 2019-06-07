@@ -1108,7 +1108,7 @@ aside.left-panel {
         .navbar .navbar-nav li.menu-item-has-children a {
           line-height: 30px; }
           .navbar .navbar-nav li.menu-item-has-children a:before {
-            content: "\f105";
+            content: "";
             color: #c8c9ce;
             font-family: 'Fontawesome';
             font-size: 16px;
@@ -1146,7 +1146,7 @@ aside.left-panel {
               text-align: left;
               width: 25px; }
         .navbar .navbar-nav li.menu-item-has-children.show a:before {
-          content: "\f107"; }
+          content: ""; }
         .navbar .navbar-nav li.menu-item-has-children.show .sub-menu {
           max-height: 1000px;
           opacity: 1;

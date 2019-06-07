@@ -1,38 +1,33 @@
-$.noConflict();
+/* eslint-disable no-new */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-expressions */
+$(document).ready(function($) {
+  'use strict'
+  ;[].slice
+    .call(document.querySelectorAll('select.cs-select'))
+    .forEach(function(el) {
+      new SelectFx(el)
+    })
 
-jQuery(document).ready(function($) {
+  $('.selectpicker').selectpicker
 
-	"use strict";
+  $('#menuToggle').on('click', function(event) {
+    $('body').toggleClass('open')
+  })
 
-	[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-		new SelectFx(el);
-	} );
+  $('.search-trigger').on('click', function(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    $('.search-trigger')
+      .parent('.header-left')
+      .addClass('open')
+  })
 
-	jQuery('.selectpicker').selectpicker;
-
-
-	$('#menuToggle').on('click', function(event) {
-		$('body').toggleClass('open');
-	});
-
-	$('.search-trigger').on('click', function(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		$('.search-trigger').parent('.header-left').addClass('open');
-	});
-
-	$('.search-close').on('click', function(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		$('.search-trigger').parent('.header-left').removeClass('open');
-	});
-
-	// $('.user-area> a').on('click', function(event) {
-	// 	event.preventDefault();
-	// 	event.stopPropagation();
-	// 	$('.user-menu').parent().removeClass('open');
-	// 	$('.user-menu').parent().toggleClass('open');
-	// });
-
-
-});
+  $('.search-close').on('click', function(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    $('.search-trigger')
+      .parent('.header-left')
+      .removeClass('open')
+  })
+})

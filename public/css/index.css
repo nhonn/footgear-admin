@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans');
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.paper {
+  margin: 0.25rem auto;
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 0 5px hsl(0, 0%, 90%);
+}
+
+main {
+  margin: 1rem auto;
+}
+
+.dropdown-toggle {
+  display: none;
+}

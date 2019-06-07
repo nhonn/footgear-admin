@@ -1,6 +1,8 @@
 const router = require('express').Router()
-const ctrl = require('../controllers/index.controller')
+const ctrl = require('../controllers/brand.controller')
 
-router.get('/', ctrl.getHomepage)
+router.get('/', ctrl.getBrandList)
+
+router.get('/add', ctrl.addNewBrand)
 
 module.exports = router
