@@ -1,0 +1,26 @@
+<section class="container">
+    <table class="paper table table-striped">
+        <thead class="thead-dark">
+            <tr class="d-flex">
+                <th class="col-2">Mã khách hàng</th>
+                <th class="col-3 text-center">Họ tên khách hàng</th>
+                <th class="col-3 text-center">Email</th>
+                <th class="col-3 text-center">Số điện thoại</th>
+                <th class="col-1 text-right"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr class="d-flex">
+                <td class="col-2">{{this.userID}}</td>
+                <td class="col-3 text-center">{{this.fullname}}</td>
+                <td class="col-3 text-center">{{this.email}}</td>
+                <td class="col-3 text-center">{{this.phone}}</td>
+                <td class="col-1 text-right">
+                    <a class="btn" href="/users/profile/{{this.userID}}"><i class="fas fa-eye"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section><!-- .content -->

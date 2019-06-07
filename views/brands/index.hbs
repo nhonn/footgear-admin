@@ -1,0 +1,20 @@
+<section class="container">
+    <table class="paper table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Mã</th>
+                <th scope="col">Hình đại diện</th>
+                <th scope="col">Tên</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each brands}}
+            <tr>
+                <td>{{this.brandID}}</td>
+                <td><img src={{this.img}}></td>
+                <td>{{this.name}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
