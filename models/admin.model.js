@@ -11,11 +11,13 @@ const adminSchema = new Schema({
   },
   username: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   ID: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   fullname: String,
   gender: {
@@ -26,6 +28,7 @@ const adminSchema = new Schema({
   email: String,
   password: {
     type: String,
+    default: bcrypt.hash('000000', 5),
     required: true
   },
   phone: String,

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 html,
 body {
   height: 100%;
@@ -16,6 +16,6 @@ main {
   margin: 1rem auto;
 }
 
-.dropdown-toggle {
-  display: none;
+.navbar-brand {
+  font-weight: 600;
 }

@@ -1,37 +1,52 @@
-<div class="col-sm-6">
-    <div class="card">
-        <div class="card-header">Tạo tài khoản mới</div>
-        <div class="card-body card-block">
-            <form action="" method="post" class="">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                        <input type="text" id="username" name="username" placeholder="Tên tài khoản"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                        <input type="email" id="email" name="email" placeholder="Email" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                        <input type="password" id="password" name="password" placeholder="Mật khẩu"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                        <input type="text" id="phone" name="phone" placeholder="Số điện thoại" class="form-control">
-                    </div>
-                </div>
-                <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Thêm</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<section class="container">
+	<form class="paper d-flex-inline">
+		<div class="form-group">
+			<div class="input-group">
+				<label class="col-3">Tên tài khoản</label>
+				<input type="text" name="username" placeholder="Tên tài khoản" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<label class="col-3">Chứng minh nhân dân</label>
+				<input type="text" name="ID" placeholder="Chứng minh nhân dân" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<label class="col-3">Họ tên</label>
+				<input type="text" name="fullname" placeholder="Họ tên" class="form-control">
+			</div>
+		</div>
+		<div class="form-group d-flex align-items-center">
+			<label class="col-3">Giới tính</label>
+			<div class="form-check col-3">
+				<input class="form-check-input" type="radio" name="radio" value="male" checked>
+				<label class="form-check-label">
+					Nam
+				</label>
+			</div>
+			<div class="form-check col-3">
+				<input class="form-check-input" type="radio" name="radio" value="female">
+				<label class="form-check-label">
+					Nữ
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<label class="col-3">Email</label>
+				<input type="email" id="email" name="email" placeholder="Email" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<label class="col-3">Số điện thoại</label>
+				<input type="text" id="phone" name="phone" placeholder="Số điện thoại" class="form-control">
+			</div>
+		</div>
+		<hr>
+		<button class="btn btn-success">Thêm mới</button>
+		<button class="btn btn-default">Nhập lại</button>
+	</form>
+</section>

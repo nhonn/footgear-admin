@@ -1,47 +1,26 @@
-<div class="content mt-3">
-    <div class="animated fadeIn">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <strong class="card-title">Dữ liệu</strong>
-                    </div>
-                    <div class="card-body">
-                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Mã khách hàng</th>
-                                    <th>Tên tài khoản</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Hành động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each users}}
-                                <tr>
-                                    <th scope="row">{{this.id}}</th>
-                                    <td>{{this.username}}</td>
-                                    <td>{{this.email}}</td>
-                                    <td>{{this.phone}}</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <a style="color: green" class="fa fa-edit" href="/users/edit/1"
-                                                    alt="Sửa"></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div><!-- .animated -->
-</div><!-- .content -->
+<section class="container">
+    <table class="paper table table-striped">
+        <thead class="thead-dark">
+            <tr class="d-flex">
+                <th class="col-2">Mã khách hàng</th>
+                <th class="col-3 text-center">Họ tên khách hàng</th>
+                <th class="col-3 text-center">Email</th>
+                <th class="col-3 text-center">Số điện thoại</th>
+                <th class="col-1 text-right"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr class="d-flex">
+                <td class="col-2">{{this.userID}}</td>
+                <td class="col-3 text-center">{{this.fullname}}</td>
+                <td class="col-3 text-center">{{this.email}}</td>
+                <td class="col-3 text-center">{{this.phone}}</td>
+                <td class="col-1 text-right">
+                    <a class="btn" href="/users/profile/{{this.userID}}"><i class="fas fa-eye"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section><!-- .content -->
