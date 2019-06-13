@@ -29,7 +29,7 @@ const productSchema = new Schema({
   },
   description: String,
   size: [Number],
-  img: String,
+  images: String,
   noOfPurchased: {
     type: Number,
     default: 0

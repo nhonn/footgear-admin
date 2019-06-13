@@ -6,6 +6,8 @@ const session = require('express-session')
 const passport = require('passport')
 const mongoose = require('mongoose')
 const MongoStore = require('connect-mongo')(session)
+const fileUpload = require('express-fileupload')
+const cloudinary = require('cloudinary').v2
 
 const app = express()
 
@@ -16,6 +18,17 @@ app.set('view engine', 'hbs')
 app.set('trust proxy', 1)
 app.use(logger('dev'))
 app.use(express.json())
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+  })
+)
+cloudinary.config({
+  cloud_name: 'nhonn',
+  api_key: '269295263632577',
+  api_secret: '7chb2P-HOfP-hD1k3_ukI2cbHL0'
+})
 app.use(
   express.urlencoded({
     extended: false
@@ -40,15 +53,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 const indexRouter = require('./routes/index.route')
 const userRouter = require('./routes/user.route')
-// const productRouter = require('./routes/product.route')
+const productRouter = require('./routes/product.route')
 const brandRouter = require('./routes/brand.route')
 // const orderRouter = require('./routes/order.route')
 // const apiRouter = require('./routes/api.route')
 
 app.use('/', indexRouter)
 app.use('/users', userRouter)
-// app.use('/product', productRouter)
-app.use('/brand', brandRouter)
+app.use('/products', productRouter)
+app.use('/brands', brandRouter)
 // app.use('/cart', orderRouter)
 // app.use('/api', apiRouter)
 

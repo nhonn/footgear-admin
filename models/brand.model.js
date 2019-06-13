@@ -42,5 +42,14 @@ brandSchema.statics.findAll = async function() {
   return this.model('Brand').find({})
 }
 
+brandSchema.statics.getID = async function(slug) {
+  let res = ''
+  await this.model('Brand').findOne({ slug }, (err, doc) => {
+    if (err) console.log(err)
+    res = doc
+  })
+  return res.brandID
+}
+
 const Brand = mongoose.model('Brand', brandSchema)
 module.exports = Brand
