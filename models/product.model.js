@@ -1,6 +1,7 @@
 'use strict'
 const mongoose = require('mongoose')
 const slug = require('mongoose-slug-updater')
+const Brand = require('./brand.model')
 mongoose.plugin(slug)
 const Schema = mongoose.Schema
 
@@ -34,6 +35,10 @@ const productSchema = new Schema({
     type: Number,
     default: 0
   },
+  views: {
+    type: Number,
+    default: 0
+  },
   created_at: {
     type: Date,
     default: Date.now()
@@ -52,15 +57,8 @@ productSchema.pre('save', function() {
   this.updated_at = Date.now()
 })
 
-productSchema.statics.findNewArrivals = async function() {
-  return this.model('Product').find({}, null, {
-    limit: 10,
-    sort: { updated_at: -1 }
-  })
-}
-
 productSchema.statics.findHotItems = async function() {
-  return this.model('Product').find({}, null, {
+  return await this.model('Product').find({}, null, {
     limit: 10,
     sort: { noOfPurchased: -1 }
   })

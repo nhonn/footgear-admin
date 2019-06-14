@@ -1,29 +1,22 @@
-<div class="col-sm">
-    <div class="card">
-        <div class="card-header">
-            <strong class="card-title">Top 10 điện thoại bán chạy</strong>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Mã sản phẩm</th>
-                        <th scope="col">Thương hiệu</th>
-                        <th scope="col">Tên sản phẩm</th>
-                        <th scope="col">Số lượng</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each data}}
-                    <tr>
-                        <th scope="row">{{this.id}}</th>
-                        <td>{{this.brand}}</td>
-                        <td>{{this.name}}</td>
-                        <td>{{this.count}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<section class="container">
+    <table class="table paper table-striped">
+        <thead class="thead-dark">
+            <tr class="d-flex">
+                <th class="col-3">Mã sản phẩm</th>
+                <th class="col-3">Thương hiệu</th>
+                <th class="col-4">Tên sản phẩm</th>
+                <th class="col-2 text-right">Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr class="d-flex">
+                <td class="col-3">{{this.productID}}</td>
+                <td class="col-3">{{this.brand}}</td>
+                <td class="col-4">{{this.name}}</td>
+                <td class="col-2 text-right">{{this.noOfPurchased}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
