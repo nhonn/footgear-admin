@@ -13,10 +13,10 @@ module.exports = {
       products,
       orders: 600
     }
-    res.status(200).render('home/index', { title: 'Trang chủ', data })
+    res.status(200).render('home', { title: 'Trang chủ', data })
   },
 
   getProfilePage: (req, res) => {
-    res.status(200).render('profile', { title: 'Thông tin tài khoản', user: req.user })
+    res.status(200).render('profile', { title: 'Thông tin tài khoản' })
   }
 }

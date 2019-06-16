@@ -1,5 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy
-const Admin = require('../models/user.model')
+const Admin = require('../models/admin.model')
 
 module.exports = function (passport) {
   passport.use(
@@ -25,11 +25,11 @@ module.exports = function (passport) {
   )
 
   passport.serializeUser(function (user, done) {
-    done(null, user.email)
+    done(null, user.username)
   })
 
-  passport.deserializeUser(async function (email, done) {
-    const user = await Admin.get(email)
+  passport.deserializeUser(async function (username, done) {
+    const user = await Admin.get(username)
     done(undefined, user)
   })
 }

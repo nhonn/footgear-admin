@@ -45,13 +45,23 @@ require('./fn/passport')(passport)
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')))
 
+const apiRouter = require('./routes/api.route')
+app.use('/api', apiRouter)
+
+app.use('/*', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    req.app.locals.user = req.user
+    next()
+  }
+  else res.redirect('/api/signin')
+})
+
 const indexRouter = require('./routes/index.route')
 const userRouter = require('./routes/user.route')
 const productRouter = require('./routes/product.route')
 const brandRouter = require('./routes/brand.route')
 const topRouter = require('./routes/top.route')
 // const orderRouter = require('./routes/order.route')
-const apiRouter = require('./routes/api.route')
 
 app.use('/', indexRouter)
 app.use('/users', userRouter)
@@ -59,10 +69,9 @@ app.use('/products', productRouter)
 app.use('/brands', brandRouter)
 app.use('/top', topRouter)
 // app.use('/cart', orderRouter)
-app.use('/api', apiRouter)
 
 // error handler
-app.use(function(err, req, res) {
+app.use(function (err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
