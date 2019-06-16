@@ -7,7 +7,6 @@ const passport = require('passport')
 const mongoose = require('mongoose')
 const MongoStore = require('connect-mongo')(session)
 const fileUpload = require('express-fileupload')
-const cloudinary = require('cloudinary').v2
 
 const app = express()
 
@@ -24,11 +23,6 @@ app.use(
     tempFileDir: '/tmp/'
   })
 )
-cloudinary.config({
-  cloud_name: 'nhonn',
-  api_key: '269295263632577',
-  api_secret: '7chb2P-HOfP-hD1k3_ukI2cbHL0'
-})
 app.use(
   express.urlencoded({
     extended: false
@@ -57,7 +51,7 @@ const productRouter = require('./routes/product.route')
 const brandRouter = require('./routes/brand.route')
 const topRouter = require('./routes/top.route')
 // const orderRouter = require('./routes/order.route')
-// const apiRouter = require('./routes/api.route')
+const apiRouter = require('./routes/api.route')
 
 app.use('/', indexRouter)
 app.use('/users', userRouter)
@@ -65,7 +59,7 @@ app.use('/products', productRouter)
 app.use('/brands', brandRouter)
 app.use('/top', topRouter)
 // app.use('/cart', orderRouter)
-// app.use('/api', apiRouter)
+app.use('/api', apiRouter)
 
 // error handler
 app.use(function(err, req, res) {

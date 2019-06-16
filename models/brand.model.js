@@ -23,15 +23,7 @@ const brandSchema = new Schema({
   created_at: {
     type: Date,
     default: Date.now()
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now()
   }
-})
-
-brandSchema.pre('save', function() {
-  this.updated_at = Date.now()
 })
 
 brandSchema.methods.findBrandProducts = async function() {

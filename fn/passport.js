@@ -1,19 +1,19 @@
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../models/user.model')
+const Admin = require('../models/user.model')
 
-module.exports = function(passport) {
+module.exports = function (passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'email' }, async function(
+    new LocalStrategy({ usernameField: 'username' }, async function (
       username,
       password,
       done
     ) {
       try {
-        const user = await User.get(username)
+        const user = await Admin.get(username)
         if (!user) {
           return done(null, false, { message: 'Incorrect username.' })
         }
-        const isPasswordValid = await User.verify(username, password)
+        const isPasswordValid = await Admin.verify(username, password)
         if (!isPasswordValid) {
           return done(null, false, { message: 'Incorrect password.' })
         }
@@ -24,12 +24,12 @@ module.exports = function(passport) {
     })
   )
 
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser(function (user, done) {
     done(null, user.email)
   })
 
-  passport.deserializeUser(async function(email, done) {
-    const user = await User.get(email)
+  passport.deserializeUser(async function (email, done) {
+    const user = await Admin.get(email)
     done(undefined, user)
   })
 }

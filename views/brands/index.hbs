@@ -2,17 +2,17 @@
     <table class="paper table">
         <thead class="thead-dark">
             <tr class="d-flex">
-                <th class="col-3">Mã</th>
-                <th class="col-2">Hình đại diện</th>
-                <th class="col-7">Tên thương hiệu</th>
+                 <th class="col-3">Hình đại diện</th>
+                <th class="col-3 text-center">Mã thương hiệu</th>
+                <th class="col-6">Tên thương hiệu</th>
             </tr>
         </thead>
         <tbody>
             {{#each brands}}
             <tr class="d-flex ">
-                <td class="col-3">{{this.brandID}}</td>
-                <td class="col-2"><img src={{this.img}}></td>
-                <td class="col-7">{{this.name}}</td>
+                <td class="col-3"><img src={{this.img}}></td>
+                <td class="col-3 text-center">{{this.brandID}}</td>
+                <td class="col-6"><b>{{this.name}}</b></td>
             </tr>
             {{/each}}
         </tbody>

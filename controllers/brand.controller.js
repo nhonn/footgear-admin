@@ -16,13 +16,12 @@ module.exports = {
 
   addNewBrand: async (req, res) => {
     let newBrand = new Brand(req.body)
-    let url
     await uploader.upload(req.files.file.tempFilePath, function(error, result) {
       if (error) console.log(error)
-      url = result.url
+      newBrand.img = result.url
+      console.log(newBrand.img)
+      newBrand.save()
     })
-    newBrand.img = url
-    newBrand.save(err => console.log(err))
     res.status(200).redirect('/brands')
   }
 }

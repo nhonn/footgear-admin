@@ -1,7 +1,6 @@
 'use strict'
 const mongoose = require('mongoose')
 const slug = require('mongoose-slug-updater')
-const Brand = require('./brand.model')
 mongoose.plugin(slug)
 const Schema = mongoose.Schema
 
@@ -62,6 +61,10 @@ productSchema.statics.findHotItems = async function() {
     limit: 10,
     sort: { noOfPurchased: -1 }
   })
+}
+
+productSchema.statics.countActiveItems = async function () {
+  return await this.model('Product').find({isArchived: false}).countDocuments()
 }
 
 const Product = mongoose.model('Product', productSchema)

@@ -27,9 +27,7 @@ const adminSchema = new Schema({
   },
   email: String,
   password: {
-    type: String,
-    default: bcrypt.hash('000000', 5),
-    required: true
+    type: String
   },
   phone: String,
   isDeleted: {
@@ -47,24 +45,24 @@ const adminSchema = new Schema({
   }
 })
 
-adminSchema.pre('save', async function() {
+adminSchema.pre('save', async function () {
   if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, 5)
   }
   this.updated_at = Date.now()
 })
 
-adminSchema.statics.get = async function(username) {
+adminSchema.statics.get = async function (username) {
   return await this.model('Admin').findOne({ username })
 }
 
-adminSchema.statics.check = async function(username) {
+adminSchema.statics.check = async function (username) {
   const admin = await this.model('Admin').findOne({ username })
   if (admin != null) return true
   return false
 }
 
-adminSchema.statics.verify = async function(username, password) {
+adminSchema.statics.verify = async function (username, password) {
   const admin = await this.model('Admin').get(username)
   if (admin == null) return false
   return await bcrypt.compare(password, admin.password)

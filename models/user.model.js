@@ -46,8 +46,12 @@ userSchema.pre('save', async function() {
   this.updated_at = Date.now()
 })
 
-userSchema.statics.findActiveUser = async function() {
+userSchema.statics.findActiveUsers = async function() {
   return await this.model('User').find({ isDeleted: false })
+}
+
+userSchema.statics.countActiveUsers = async function() {
+  return await this.model('User').find({ isDeleted: false }).countDocuments()
 }
 
 userSchema.statics.get = async function(email) {

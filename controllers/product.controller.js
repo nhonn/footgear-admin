@@ -5,14 +5,16 @@ const Product = require('../models/product.model')
 
 module.exports = {
   getProductPage: async (req, res) => {
-    const products = await Product.find({})
+    let products = await Product.find({})
+    const brands = await Brand.find({})
+    products.forEach(e => {
+      let brand = brands.filter(x => x.brandID == e.brandID)
+      e.brand = brand[0].name
+    });
+    console.log(products)
     res
       .status(200)
       .render('products', { title: 'Danh sách sản phẩm', products })
-  },
-  getProductList: async (req, res) => {
-    const data = { newTotalPages: 15 }
-    res.json(data)
   },
 
   getNewProductPage: async (req, res) => {
@@ -25,12 +27,11 @@ module.exports = {
   addNewProduct: async (req, res) => {
     let newProduct = new Product(req.body)
     newProduct.brandID = req.body.brand
-    let url
     await uploader.upload(req.files.file.tempFilePath, function(error, result) {
       if (error) console.log(error)
-      url = result.url
+      newProduct.images = result.url
+      newProduct.save()
     })
-    newProduct.images = url
-    newProduct.save(err => console.log(err))
+    res.redirect('/products')
   }
 }

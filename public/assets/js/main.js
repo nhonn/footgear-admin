@@ -1,21 +1,21 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
-$(document).ready(function($) {
+$(document).ready(function ($) {
   'use strict'
-  ;[].slice
-    .call(document.querySelectorAll('select.cs-select'))
-    .forEach(function(el) {
-      new SelectFx(el)
-    })
+    ;[].slice
+      .call(document.querySelectorAll('select.cs-select'))
+      .forEach(function (el) {
+        new SelectFx(el)
+      })
 
   $('.selectpicker').selectpicker
 
-  $('#menuToggle').on('click', function(event) {
+  $('#menuToggle').on('click', function (event) {
     $('body').toggleClass('open')
   })
 
-  $('.search-trigger').on('click', function(event) {
+  $('.search-trigger').on('click', function (event) {
     event.preventDefault()
     event.stopPropagation()
     $('.search-trigger')
@@ -23,7 +23,7 @@ $(document).ready(function($) {
       .addClass('open')
   })
 
-  $('.search-close').on('click', function(event) {
+  $('.search-close').on('click', function (event) {
     event.preventDefault()
     event.stopPropagation()
     $('.search-trigger')
@@ -31,3 +31,11 @@ $(document).ready(function($) {
       .removeClass('open')
   })
 })
+
+function changePassword() {
+  $('#changePasswordForm').prop('hidden', false)
+}
+
+function cancelChangePassword() {
+  $('#changePasswordForm').prop('hidden', true)
+}

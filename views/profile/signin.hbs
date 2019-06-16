@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/css/index.css" />
+
+</head>
+
+<body>
+  <section class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="paper col-md-3 col-sm-7">
+      <h4 class="text-center">Sneakiie ADMIN</h4>
+      <hr />
+      <form method="post" action="/api/signin">
+        <div class="form-group">
+          <label>Tên đăng nhập</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Nhập email" />
+        </div>
+        <div class="form-group">
+          <label>Mật khẩu</label>
+          <input type="password" class="form-control" id="password" name="password"
+            placeholder="Nhập mật khẩu của bạn" />
+        </div>
+        <hr />
+        <input class="btn btn-primary w-100" type="submit" value="Đăng nhập"></input>
+      </form>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+  <script src="/assets/js/pagination.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
