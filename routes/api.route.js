@@ -8,12 +8,15 @@ router.post(
   '/signin',
   passport.authenticate('local', {
     successRedirect: '/profile',
-    failureRedirect: '/api/signin'
+    failureRedirect: '/api/signin',
+    failureFlash: true
   })
 )
 
 router.post('/signup', ctrl.signup)
 
 router.get('/signout', ctrl.signout)
+
+router.post('/updatePassword', ctrl.updatePassword)
 
 module.exports = router

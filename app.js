@@ -7,6 +7,7 @@ const passport = require('passport')
 const mongoose = require('mongoose')
 const MongoStore = require('connect-mongo')(session)
 const fileUpload = require('express-fileupload')
+const flash = require('connect-flash')
 
 const app = express()
 
@@ -41,6 +42,7 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
 require('./fn/passport')(passport)
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -61,14 +63,16 @@ const userRouter = require('./routes/user.route')
 const productRouter = require('./routes/product.route')
 const brandRouter = require('./routes/brand.route')
 const topRouter = require('./routes/top.route')
-// const orderRouter = require('./routes/order.route')
+const adminRouter = require('./routes/admin.route')
+const orderRouter = require('./routes/order.route')
 
 app.use('/', indexRouter)
 app.use('/users', userRouter)
 app.use('/products', productRouter)
 app.use('/brands', brandRouter)
 app.use('/top', topRouter)
-// app.use('/cart', orderRouter)
+app.use('/profile', adminRouter)
+app.use('/orders', orderRouter)
 
 // error handler
 app.use(function (err, req, res) {

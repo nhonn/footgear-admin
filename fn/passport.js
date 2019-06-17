@@ -3,7 +3,8 @@ const Admin = require('../models/admin.model')
 
 module.exports = function (passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'username' }, async function (
+    new LocalStrategy({ usernameField: 'username', passReqToCallback: true }, async function (
+      req,
       username,
       password,
       done
@@ -11,11 +12,11 @@ module.exports = function (passport) {
       try {
         const user = await Admin.get(username)
         if (!user) {
-          return done(null, false, { message: 'Incorrect username.' })
+          return done(null, false, req.flash('error', 'Tài khoản không tồn tại.'))
         }
         const isPasswordValid = await Admin.verify(username, password)
         if (!isPasswordValid) {
-          return done(null, false, { message: 'Incorrect password.' })
+          return done(null, false, req.flash('error', 'Sai mật khẩu.'))
         }
         return done(null, user)
       } catch (ex) {
