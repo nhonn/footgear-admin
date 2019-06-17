@@ -29,7 +29,7 @@ const productSchema = new Schema({
   },
   description: String,
   size: [Number],
-  images: String,
+  images: [String],
   noOfPurchased: {
     type: Number,
     default: 0
@@ -52,11 +52,11 @@ const productSchema = new Schema({
   }
 })
 
-productSchema.pre('save', function() {
+productSchema.pre('save', function () {
   this.updated_at = Date.now()
 })
 
-productSchema.statics.findHotItems = async function() {
+productSchema.statics.findHotItems = async function () {
   return await this.model('Product').find({}, null, {
     limit: 10,
     sort: { noOfPurchased: -1 }
@@ -64,7 +64,7 @@ productSchema.statics.findHotItems = async function() {
 }
 
 productSchema.statics.countActiveItems = async function () {
-  return await this.model('Product').find({isArchived: false}).countDocuments()
+  return await this.model('Product').find({ isArchived: false }).countDocuments()
 }
 
 const Product = mongoose.model('Product', productSchema)

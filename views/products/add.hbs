@@ -1,5 +1,5 @@
 <section class="container">
-	<form class="paper" encType="multipart/form-data" action="/products/add" method="POST">
+	<form class="paper" action="/products/add" method="POST" data-parsley-validate="">
 		<div class="form-group d-flex">
 			<label for="brand" class="col-12 col-md-3">Thương hiệu</label>
 			<select name="brand" class="col-12 col-md-9 form-control">
@@ -10,16 +10,22 @@
 		</div>
 		<div class="form-group d-flex">
 			<label for="name" class="col-12 col-md-3 ">Tên sản phẩm</label>
-			<input type="text" name="name" placeholder="Tên sản phẩm" class="form-control col-12 col-md-9">
+			<input type="text" name="name" placeholder="Tên sản phẩm" class="form-control col-12 col-md-9" required="">
 		</div>
 		<div class="form-group d-flex">
 			<label for="price" class="col-12 col-md-3">Giá sản phẩm</label>
-			<input type="text" name="price" placeholder="Giá sản phẩm" class="form-control col-12 col-md-9">
+			<input type="text" name="price" placeholder="Giá sản phẩm" class="form-control col-12 col-md-9"
+				data-parsley-type="digits" data-parsley-minlength="5">
 		</div>
+
 		<div class="form-group d-flex">
 			<label for="description" class="col-12 col-md-3">Mô tả sản phẩm</label>
 			<textarea class="form-control col-12 col-md-9" rows="3" name="description"
 				placeholder="Mô tả sản phẩm"></textarea>
+		</div>
+		<div class="form-group d-flex">
+			<label class="col-12 col-md-3">Size:</label>
+			<input type="text" name="size" class="form-control col-12 col-md-9" required="">
 		</div>
 		<div class="form-group d-flex">
 			<label for="file-multiple-input" class="col-12 col-md-3">Hình ảnh sản

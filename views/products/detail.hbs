@@ -1,0 +1,63 @@
+<section class="container">
+  <form class="paper" action="/products/{{product.productID}}" method="POST" data-parsley-validate="">
+    <div class="form-group d-flex">
+      <label for="brand" class="col-12 col-md-3">Thương hiệu</label>
+      <select name="brand" class="col-12 col-md-9 form-control">
+        <option value={{product.brandID}} selected>{{defaultBrandName}}</option>
+        {{#each brands}}
+        <option value={{this.brandID}}>{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group d-flex">
+      <label for="name" class="col-12 col-md-3 ">Tên sản phẩm</label>
+      <input type="text" name="name" placeholder="Tên sản phẩm" class="form-control col-12 col-md-9"
+        value="{{product.name}}" required="">
+    </div>
+    <div class="form-group d-flex">
+      <label for="price" class="col-12 col-md-3">Giá sản phẩm</label>
+      <input type="text" name="price" placeholder="Giá sản phẩm" class="form-control col-12 col-md-9"
+        value="{{product.price}}" data-parsley-type="digits" data-parsley-minlength="5" required="">
+    </div>
+    <div class="form-group d-flex">
+      <label for="description" class="col-12 col-md-3">Mô tả sản phẩm</label>
+      <textarea class="form-control col-12 col-md-9" rows="3" name="description" placeholder="Mô tả sản phẩm"
+        value="{{product.description}}"></textarea>
+    </div>
+    <div class="form-group d-flex">
+      <label class="col-12 col-md-3">Số lượt xem</label>
+      <input type="text" class="form-control col-12 col-md-9" value="{{product.views}}" disabled>
+    </div>
+    <div class="form-group d-flex">
+      <label class="col-12 col-md-3">Số lượt mua</label>
+      <input type="text" class="form-control col-12 col-md-9" value="{{product.noOfPurchased}}" disabled>
+    </div>
+    <div class="form-group d-flex">
+      <label class="col-12 col-md-3">Size:</label>
+      <input type="text" name="size" class="form-control col-12 col-md-9" value="{{product.sizeString}}" required="">
+    </div>
+    <div class="form-group d-flex">
+      <label class="col-12 col-md-3">Hình đại diện</label>
+      <img class="col-12 col-md-9" src={{product.images}}>
+    </div>
+    <div class="form-group d-flex">
+      <label for="file-multiple-input" class="col-12 col-md-3">Đổi ảnh đại diện sản
+        phẩm</label>
+      <input type="file" accept="image/*" name="file" class="form-control-file col-12 col-md-9">
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <div>
+        <button type="submit" class="btn btn-warning text-light">
+          <i class="fas fa-plus"></i> Cập nhật
+        </button>
+        <button type="reset" class="btn btn-default">
+          <i class="fas fa-sync-alt"></i> Nhập lại
+        </button>
+      </div>
+      <a type="button" class="btn btn-danger" href="/products/rm/{{product.productID}}">
+        <i class="fas fa-trash"></i> Xóa sản phẩm
+      </a>
+    </div>
+  </form>
+</section>
