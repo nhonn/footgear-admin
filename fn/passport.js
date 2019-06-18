@@ -1,21 +1,22 @@
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../models/user.model')
+const Admin = require('../models/admin.model')
 
-module.exports = function(passport) {
+module.exports = function (passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'email' }, async function(
+    new LocalStrategy({ usernameField: 'username', passReqToCallback: true }, async function (
+      req,
       username,
       password,
       done
     ) {
       try {
-        const user = await User.get(username)
+        const user = await Admin.get(username)
         if (!user) {
-          return done(null, false, { message: 'Incorrect username.' })
+          return done(null, false, req.flash('error', 'Tài khoản không tồn tại.'))
         }
-        const isPasswordValid = await User.verify(username, password)
+        const isPasswordValid = await Admin.verify(username, password)
         if (!isPasswordValid) {
-          return done(null, false, { message: 'Incorrect password.' })
+          return done(null, false, req.flash('error', 'Sai mật khẩu.'))
         }
         return done(null, user)
       } catch (ex) {
@@ -24,12 +25,12 @@ module.exports = function(passport) {
     })
   )
 
-  passport.serializeUser(function(user, done) {
-    done(null, user.email)
+  passport.serializeUser(function (user, done) {
+    done(null, user.username)
   })
 
-  passport.deserializeUser(async function(email, done) {
-    const user = await User.get(email)
+  passport.deserializeUser(async function (username, done) {
+    const user = await Admin.get(username)
     done(undefined, user)
   })
 }

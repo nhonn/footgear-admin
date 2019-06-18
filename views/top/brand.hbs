@@ -1,29 +1,29 @@
-<div class="col-sm">
-    <div class="card">
-        <div class="card-header">
-            <strong class="card-title">Top 10 thương hiệu bán chạy</strong>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Thương hiệu</th>
-                        <th scope="col">Tổng số lượng</th>
-                        <th scope="col">Tổng doanh thu</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each data}}
-                    <tr>
-                        <th scope="row">{{this.id}}</th>
-                        <td>{{this.brand}}</td>
-                        <td>{{this.count}}</td>
-                        <td>{{this.revenue}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<section class="container">
+	<div class="d-flex">
+		{{#each brands}}
+		<a class="btn btn-outline-dark" href="/top/brands?q={{this.brandID}}">{{this.name}}</a>
+		{{/each}}
+	</div>
+	<table class="table paper table-striped">
+		<thead class="thead-dark">
+			<tr class="d-flex">
+				<th class="col-4">Mã sản phẩm</th>
+				<th class="col-4">Tên sản phẩm</th>
+				<th class="col-3 text-right">Số lượng</th>
+				<th class="col-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each data}}
+			<tr class="d-flex">
+				<td class="col-4">{{this.productID}}</td>
+				<td class="col-4">{{this.name}}</td>
+				<td class="col-3 text-right">{{this.noOfPurchased}}</td>
+				<td class="col-1 text-right">
+					<a href="/products/{{this.productID}}"><i class="fas fa-info"></i></a>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</section>

@@ -1,5 +1,13 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
+const cloudinary = require('cloudinary').v2
+
+// Connect cloudinary image server
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME, 
+  api_key: process.env.API_KEY, 
+  api_secret: process.env.API_SECRET
+})
 
 // Create the database connection
 mongoose.connect(process.env.DB_HOST, {

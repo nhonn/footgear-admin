@@ -1,18 +1,18 @@
 <section class="container">
-    <table class="paper table table-striped">
+    <table class="paper table">
         <thead class="thead-dark">
-            <tr>
-                <th scope="col">Mã</th>
-                <th scope="col">Hình đại diện</th>
-                <th scope="col">Tên</th>
+            <tr class="d-flex">
+                 <th class="col-3">Hình đại diện</th>
+                <th class="col-3 text-center">Mã thương hiệu</th>
+                <th class="col-6">Tên thương hiệu</th>
             </tr>
         </thead>
         <tbody>
             {{#each brands}}
-            <tr>
-                <td>{{this.brandID}}</td>
-                <td><img src={{this.img}}></td>
-                <td>{{this.name}}</td>
+            <tr class="d-flex ">
+                <td class="col-3"><img src={{this.img}}></td>
+                <td class="col-3 text-center">{{this.brandID}}</td>
+                <td class="col-6"><b>{{this.name}}</b></td>
             </tr>
             {{/each}}
         </tbody>

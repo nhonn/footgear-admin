@@ -1,5 +1,5 @@
 <section class="container">
-	<form class="paper d-flex-inline">
+	<form class="paper d-flex-inline" method="POST" action="/api/signup">
 		<div class="form-group">
 			<div class="input-group">
 				<label class="col-3">Tên tài khoản</label>
@@ -21,13 +21,13 @@
 		<div class="form-group d-flex align-items-center">
 			<label class="col-3">Giới tính</label>
 			<div class="form-check col-3">
-				<input class="form-check-input" type="radio" name="radio" value="male" checked>
+				<input class="form-check-input" type="radio" name="gender" value="0" checked>
 				<label class="form-check-label">
 					Nam
 				</label>
 			</div>
 			<div class="form-check col-3">
-				<input class="form-check-input" type="radio" name="radio" value="female">
+				<input class="form-check-input" type="radio" name="gender" value="1">
 				<label class="form-check-label">
 					Nữ
 				</label>
@@ -45,8 +45,14 @@
 				<input type="text" id="phone" name="phone" placeholder="Số điện thoại" class="form-control">
 			</div>
 		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<label class="col-3">Mật khẩu tài khoản</label>
+				<input type="password" name="password" placeholder="Mật khẩu" class="form-control">
+			</div>
+		</div>
 		<hr>
 		<button class="btn btn-success">Thêm mới</button>
-		<button class="btn btn-default">Nhập lại</button>
+		<button type="reset" class="btn btn-default">Nhập lại</button>
 	</form>
 </section>

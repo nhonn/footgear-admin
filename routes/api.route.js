@@ -1,6 +1,22 @@
 const router = require('express').Router()
-const ctrl = require('../controllers/index.controller')
+const ctrl = require('../controllers/api.controller')
+const passport = require('passport')
 
-router.get('/', ctrl.getHomepage)
+router.get('/signin', ctrl.getSigninPage)
+
+router.post(
+  '/signin',
+  passport.authenticate('local', {
+    successRedirect: '/profile',
+    failureRedirect: '/api/signin',
+    failureFlash: true
+  })
+)
+
+router.post('/signup', ctrl.signup)
+
+router.get('/signout', ctrl.signout)
+
+router.post('/updatePassword', ctrl.updatePassword)
 
 module.exports = router

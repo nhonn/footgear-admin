@@ -24,7 +24,7 @@ const userSchema = new Schema({
     required: true
   },
   phone: String,
-  isDeleted: {
+  isActive: {
     type: Boolean,
     default: 0,
     required: true
@@ -39,28 +39,48 @@ const userSchema = new Schema({
   }
 })
 
-userSchema.pre('save', async function() {
+userSchema.pre('save', async function () {
   if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, 5)
   }
   this.updated_at = Date.now()
 })
 
-userSchema.statics.findActiveUser = async function() {
-  return await this.model('User').find({ isDeleted: false })
+userSchema.statics.findActiveUsers = async function () {
+  return await this.model('User').find({ isActive: true })
 }
 
-userSchema.statics.get = async function(email) {
+userSchema.statics.countActiveUsers = async function () {
+  return await this.model('User').find({ isActive: true }).countDocuments()
+}
+
+userSchema.statics.get = async function (email) {
   return await this.model('User').findOne({ email })
 }
 
-userSchema.statics.check = async function(email) {
+userSchema.statics.getByID = async function (userID) {
+  return await this.model('User').findOne({ userID })
+}
+
+userSchema.statics.lock = async function (userID) {
+  let user = await this.model('User').findOne({ userID })
+  user.isActive = false
+  user.save()
+}
+
+userSchema.statics.unlock = async function (userID) {
+  let user = await this.model('User').findOne({ userID })
+  user.isActive = true
+  user.save()
+}
+
+userSchema.statics.check = async function (email) {
   const user = await this.model('User').findOne({ email })
   if (user != null) return true
   return false
 }
 
-userSchema.statics.verify = async function(email, password) {
+userSchema.statics.verify = async function (email, password) {
   const user = await this.model('User').get(email)
   if (user == null) return false
   return await bcrypt.compare(password, user.password)

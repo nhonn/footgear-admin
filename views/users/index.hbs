@@ -5,7 +5,8 @@
                 <th class="col-2">Mã khách hàng</th>
                 <th class="col-3 text-center">Họ tên khách hàng</th>
                 <th class="col-3 text-center">Email</th>
-                <th class="col-3 text-center">Số điện thoại</th>
+                <th class="col-2 text-center">Số điện thoại</th>
+                <th class="col-1 text-center">Trạng thái</th>
                 <th class="col-1 text-right"></th>
             </tr>
         </thead>
@@ -15,7 +16,14 @@
                 <td class="col-2">{{this.userID}}</td>
                 <td class="col-3 text-center">{{this.fullname}}</td>
                 <td class="col-3 text-center">{{this.email}}</td>
-                <td class="col-3 text-center">{{this.phone}}</td>
+                <td class="col-2 text-center">{{this.phone}}</td>
+                <td class="col-1 text-center">
+                    {{#if this.isActive}}
+                    <p class="text-success">Hoạt động</p>
+                    {{else}}
+                    <p class="text-danger">Khóa</p>
+                    {{/if}}
+                </td>
                 <td class="col-1 text-right">
                     <a class="btn" href="/users/profile/{{this.userID}}"><i class="fas fa-eye"></i></a>
                 </td>
