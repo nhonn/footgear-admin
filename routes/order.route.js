@@ -6,5 +6,6 @@ router.get('/processing', ctrl.getProcessingOrders)
 router.get('/shipping', ctrl.getShippingOrders)
 router.get('/processing/:id', ctrl.doneProcessing)
 router.get('/shipping/:id', ctrl.doneShipping)
+router.get('/detail/:id', ctrl.getDetail)
 
 module.exports = router

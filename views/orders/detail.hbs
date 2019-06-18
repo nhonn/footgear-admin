@@ -1,0 +1,53 @@
+<section class="container">
+  <form class="paper">
+    <div class="form-group">
+      <label>OrderID</label>
+      <input type="text" class="form-control" value="{{data.orderID}}">
+    </div>
+    <div class="form-group">
+      <label>Họ tên khách hàng</label>
+      <input type="text" class="form-control" value="{{data.fullname}}">
+    </div>
+    <div class="form-group">
+      <label>Địa chỉ</label>
+      <input type="text" class="form-control" value="{{data.address}}">
+    </div>
+    <div class="form-group">
+      <label>Số điện thoại</label>
+      <input type="text" class="form-control" value="{{data.phone}}">
+    </div>
+    <div class="form-group">
+      <label>Tổng tiền</label>
+      <input type="text" class="form-control" value="{{data.totalPrice}}">
+    </div>
+    <div class="form-group">
+      <label>Trạng thái</label>
+      <input type="text" class="form-control" value="{{data.status}}">
+    </div>
+    Sản phẩm:
+    {{#each data.items}}
+    <div class="paper">
+      <div class="form-group">
+        <label>ID Sản phẩm</label>
+        <input type="text" class="form-control" value="{{this.productID}}">
+      </div>
+      <div class="form-group">
+        <label>ID Sản phẩm</label>
+        <input type="text" class="form-control" value="{{this.productID}}">
+      </div>
+      <div class="form-group">
+        <label>Tên sản phẩm</label>
+        <input type="text" class="form-control" value="{{this.name}}">
+      </div>
+      <div class="form-group">
+        <label>Size</label>
+        <input type="text" class="form-control" value="{{this.size}}">
+      </div>
+      <div class="form-group">
+        <label>Đơn giá</label>
+        <input type="text" class="form-control" value="{{this.price}}">
+      </div>
+    </div>
+    {{/each}}
+  </form>
+</section>

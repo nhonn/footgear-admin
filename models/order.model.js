@@ -72,5 +72,9 @@ orderSchema.statics.findOrdersOfYear = async function (year) {
   return orders
 }
 
+orderSchema.statics.countOrders = async function () {
+  return await this.model('Order').find({}).countDocuments()
+}
+
 const Order = mongoose.model('Order', orderSchema)
 module.exports = Order

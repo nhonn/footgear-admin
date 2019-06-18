@@ -2,20 +2,24 @@
 	<table class="table table-striped paper">
 		<thead class="thead-dark">
 			<tr class="d-flex">
+				<th class="col-1"></th>
 				<th class="col-2">Mã đơn hàng</th>
 				<th class="col-2">Ngày đặt hàng</th>
 				<th class="col-2">Tổng tiền</th>
-				<th class="col-4">Địa chỉ</th>
+				<th class="col-3">Địa chỉ</th>
 				<th class="col-2">Ngày giao hàng</th>
 			</tr>
 		</thead>
 		<tbody>
 			{{#each orders}}
 			<tr class="d-flex">
+				<td class="col-1">
+					<a href="/orders/detail/{{this.orderID}}"><i class="fas fa-info"></i></a>
+				</td>
 				<td class="col-2">{{this.orderID}}</td>
 				<td class="col-2">{{this.date}}</td>
 				<td class="col-2">{{this.totalPrice}}</td>
-				<td class="col-4">{{this.address}}</td>
+				<td class="col-3">{{this.address}}</td>
 				<td class="col-2">{{this.done}}</td>
 			</tr>
 			{{/each}}
