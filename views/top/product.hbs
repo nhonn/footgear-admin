@@ -4,8 +4,9 @@
             <tr class="d-flex">
                 <th class="col-3">Mã sản phẩm</th>
                 <th class="col-3">Thương hiệu</th>
-                <th class="col-4">Tên sản phẩm</th>
+                <th class="col-3">Tên sản phẩm</th>
                 <th class="col-2 text-right">Số lượng</th>
+                <th class="col-1"></th>
             </tr>
         </thead>
         <tbody>
@@ -13,8 +14,11 @@
             <tr class="d-flex">
                 <td class="col-3">{{this.productID}}</td>
                 <td class="col-3">{{this.brand}}</td>
-                <td class="col-4">{{this.name}}</td>
+                <td class="col-3">{{this.name}}</td>
                 <td class="col-2 text-right">{{this.noOfPurchased}}</td>
+                <td class="col-1 text-right">
+                    <a href="/products/{{this.productID}}"><i class="fas fa-info"></i></a>
+                </td>
             </tr>
             {{/each}}
         </tbody>

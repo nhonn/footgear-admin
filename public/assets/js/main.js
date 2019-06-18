@@ -49,3 +49,20 @@ function unlockAccount(id) {
   $.post('localhost:3001/users/unlock/' + id)
   window.location.reload()
 }
+
+$('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 10,
+  center: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    640: {
+      items: 3
+    },
+    1007: {
+      items: 5
+    }
+  }
+})

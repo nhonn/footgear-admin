@@ -26,12 +26,16 @@ const brandSchema = new Schema({
   }
 })
 
-brandSchema.methods.findBrandProducts = async function() {
-  return Product.find({ brandID: this.brandID })
+brandSchema.methods.findBrandProducts = async function () {
+  return await Product.find({ brandID: this.brandID })
 }
 
-brandSchema.statics.findAll = async function() {
-  return this.model('Brand').find({})
+brandSchema.methods.findTopBrandProducts = async function () {
+  return await Product.find({ brandID: this.brandID }, null, { limit: 10, sort: { noOfPurchased: -1 } })
+}
+
+brandSchema.statics.findAll = async function () {
+  return await this.model('Brand').find({})
 }
 
 const Brand = mongoose.model('Brand', brandSchema)

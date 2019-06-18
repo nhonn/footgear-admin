@@ -65,5 +65,12 @@ orderSchema.statics.findShippingOrders = async function () {
   return orders
 }
 
+orderSchema.statics.findOrdersOfYear = async function (year) {
+  const firstDay = new Date(year, 0, 1)
+  const lastDay = new Date(year, 11, 31)
+  let orders = await this.model('Order').find({ status: 'done', updated_at: { $lte: lastDay, $gte: firstDay } })
+  return orders
+}
+
 const Order = mongoose.model('Order', orderSchema)
 module.exports = Order

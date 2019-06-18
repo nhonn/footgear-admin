@@ -65,6 +65,7 @@ const brandRouter = require('./routes/brand.route')
 const topRouter = require('./routes/top.route')
 const adminRouter = require('./routes/admin.route')
 const orderRouter = require('./routes/order.route')
+const revenueRouter = require('./routes/revenue.route')
 
 app.use('/', indexRouter)
 app.use('/users', userRouter)
@@ -73,6 +74,7 @@ app.use('/brands', brandRouter)
 app.use('/top', topRouter)
 app.use('/profile', adminRouter)
 app.use('/orders', orderRouter)
+app.use('/revenue', revenueRouter)
 
 // error handler
 app.use(function (err, req, res) {
