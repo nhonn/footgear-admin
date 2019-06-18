@@ -26,7 +26,8 @@ module.exports = {
   addNewProduct: async (req, res) => {
     let newProduct = new Product(req.body)
     newProduct.brandID = req.body.brand
-    product.size = req.body.size.split(',')
+    newProduct.size = req.body.size.split(',')
+    console.log(req.files.file)
     await uploader.upload(req.files.file.tempFilePath, function (error, result) {
       if (error) console.log(error)
       newProduct.images = result.url

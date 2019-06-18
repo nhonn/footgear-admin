@@ -30,7 +30,7 @@ const adminSchema = new Schema({
     type: String
   },
   phone: String,
-  isDeleted: {
+  isActive: {
     type: Boolean,
     default: 0,
     required: true

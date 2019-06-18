@@ -29,5 +29,10 @@ module.exports = {
     order.status = 'done'
     order.save()
     res.redirect('back')
+  },
+
+  getDetail: async (req, res) => {
+    let order = await Order.findOne({ orderID: req.params.id })
+    res.status(200).render('orders/detail', { title: 'Chi tiết đơn hàng', data: order })
   }
 }

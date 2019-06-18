@@ -1,10 +1,18 @@
 <section class="container">
+    {{#if flash}}
+    {{#each flash}}
+    <div class="alert alert-danger" role="alert">
+        {{this}}
+    </div>
+    {{/each}}
+    {{/if}}
     <table class="paper table">
         <thead class="thead-dark">
             <tr class="d-flex">
-                 <th class="col-3">Hình đại diện</th>
+                <th class="col-3">Hình đại diện</th>
                 <th class="col-3 text-center">Mã thương hiệu</th>
-                <th class="col-6">Tên thương hiệu</th>
+                <th class="col-5">Tên thương hiệu</th>
+                <th class="col-1 text-right"></th>
             </tr>
         </thead>
         <tbody>
@@ -12,7 +20,10 @@
             <tr class="d-flex ">
                 <td class="col-3"><img src={{this.img}}></td>
                 <td class="col-3 text-center">{{this.brandID}}</td>
-                <td class="col-6"><b>{{this.name}}</b></td>
+                <td class="col-5"><b>{{this.name}}</b></td>
+                <td class="col-1 text-right">
+                    <a href="/brands/{{this.slug}}"><i class="fas fa-info"></i></a>
+                </td>
             </tr>
             {{/each}}
         </tbody>
