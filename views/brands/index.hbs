@@ -6,26 +6,14 @@
     </div>
     {{/each}}
     {{/if}}
-    <table class="paper table">
-        <thead class="thead-dark">
-            <tr class="d-flex">
-                <th class="col-3">Hình đại diện</th>
-                <th class="col-3 text-center">Mã thương hiệu</th>
-                <th class="col-5">Tên thương hiệu</th>
-                <th class="col-1 text-right"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each brands}}
-            <tr class="d-flex ">
-                <td class="col-3"><img src={{this.img}}></td>
-                <td class="col-3 text-center">{{this.brandID}}</td>
-                <td class="col-5"><b>{{this.name}}</b></td>
-                <td class="col-1 text-right">
-                    <a href="/brands/{{this.slug}}"><i class="fas fa-info"></i></a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    <div class="d-flex justify-content-start flex-wrap">
+        {{#each brands}}
+        <div class="paper col-3">
+            <a href="/brands/detail/{{this.slug}}">
+                <img src={{this.img}}>
+                <b>{{this.name}}</b>
+            </a>
+        </div>
+        {{/each}}
+    </div>
 </section>

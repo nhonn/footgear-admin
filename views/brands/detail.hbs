@@ -3,10 +3,11 @@
     enctype="multipart/form-data">
     <div class="col-9">
       <img src={{brand.img}}>
-      <div class="form-inline-group">
-        <label for="file-multiple-input">Đổi ảnh đại diện sản
+      <div class="form-group">
+        <label for="label file-input">Đổi ảnh đại diện sản
           phẩm</label>
         <input type="file" accept="image/*" name="file" class="form-control-file">
+
       </div>
     </div>
     <aside class="flex-column col-3 text-right">
@@ -14,11 +15,12 @@
         <label>Tên thương hiệu</label>
         <input type="text" name="brand" class="form-control" value="{{brand.name}}" disabled>
       </div>
+      <div class="form-group">
+        <label>Số lượng sản phẩm</label>
+        <input type="text" name="brand" class="form-control" value="{{brand.count}}" disabled>
+      </div>
       <button type="submit" class="btn btn-warning text-light">
         <i class="fas fa-plus"></i> Cập nhật
-      </button>
-      <button type="reset" class="btn btn-default">
-        <i class="fas fa-sync-alt"></i> Nhập lại
       </button>
       <a class="btn btn-danger" href="/brands/rm/{{brand.brandID}}">
         <i class="fas fa-trash"></i> Xóa thương hiệu
@@ -29,20 +31,17 @@
     <thead class="thead-dark">
       <tr class="d-flex">
         <th class="col-4">Mã sản phẩm</th>
-        <th class="col-4">Tên sản phẩm</th>
+        <th class="col-5">Tên sản phẩm</th>
         <th class="col-3 text-right">Số lượng đã bán</th>
-        <th class="col-1"></th>
       </tr>
     </thead>
     <tbody>
       {{#each data}}
       <tr class="d-flex">
-        <td class="col-4">{{this.productID}}</td>
-        <td class="col-4">{{this.name}}</td>
+        <td class="col-4">
+          <a class="text-info" href="/products/{{this.productID}}">{{this.productID}}</a></td>
+        <td class="col-5">{{this.name}}</td>
         <td class="col-3 text-right">{{this.noOfPurchased}}</td>
-        <td class="col-1 text-right">
-          <a href="/products/{{this.productID}}"><i class="fas fa-info"></i></a>
-        </td>
       </tr>
       {{/each}}
     </tbody>
