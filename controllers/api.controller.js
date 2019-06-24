@@ -4,13 +4,11 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
   getSigninPage: (req, res) => {
-    res
-      .status(200)
-      .render('account/login', {
-        layout: false,
-        title: 'Đăng nhập',
-        flash: req.flash()
-      })
+    res.status(200).render('account/login', {
+      layout: false,
+      title: 'Đăng nhập',
+      flash: req.flash()
+    })
   },
 
   signup: (req, res) => {
@@ -30,6 +28,7 @@ module.exports = {
     if (tmp) {
       user.password = req.body.password
       user.save()
+      req.flash('success', 'Thay đổi mật khẩu thành công.')
     } else {
       req.flash('error', 'Sai mật khẩu.')
     }

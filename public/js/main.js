@@ -2,37 +2,6 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
-$(document).ready(function($) {
-  'use strict'
-  ;[].slice
-    .call(document.querySelectorAll('select.cs-select'))
-    .forEach(function(el) {
-      new SelectFx(el)
-    })
-
-  $('.selectpicker').selectpicker
-
-  $('#menuToggle').on('click', function(event) {
-    $('body').toggleClass('open')
-  })
-
-  $('.search-trigger').on('click', function(event) {
-    event.preventDefault()
-    event.stopPropagation()
-    $('.search-trigger')
-      .parent('.header-left')
-      .addClass('open')
-  })
-
-  $('.search-close').on('click', function(event) {
-    event.preventDefault()
-    event.stopPropagation()
-    $('.search-trigger')
-      .parent('.header-left')
-      .removeClass('open')
-  })
-})
-
 function changePassword() {
   $('#changePasswordForm').prop('hidden', false)
 }
@@ -65,4 +34,22 @@ function quitUserInfo() {
   $('form input:radio').prop('disabled', true)
   $('#confirmChangeUserInfo').prop('hidden', true)
   $('#changeUserInfo').prop('hidden', false)
+}
+
+function changeAccountInfo() {
+  $('form input:text').prop('disabled', false)
+  $('#username').prop('disabled', true)
+  $('form input:radio').prop('disabled', false)
+  $('#email').prop('disabled', false)
+  $('#confirmChangeAccountInfo').prop('hidden', false)
+  $('#changeAccountInfo').prop('hidden', true)
+}
+
+function quitAccountInfo() {
+  $('form input:text').prop('disabled', true)
+  $('#username').prop('disabled', true)
+  $('form input:radio').prop('disabled', true)
+  $('#email').prop('disabled', true)
+  $('#confirmChangeAccountInfo').prop('hidden', true)
+  $('#changeAccountInfo').prop('hidden', false)
 }
