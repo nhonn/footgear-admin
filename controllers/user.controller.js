@@ -15,20 +15,22 @@ module.exports = {
 
   getProfile: async (req, res) => {
     const user = await User.getByID(req.params.id)
-    res.status(200).render('users/profile', { title: user.fullname, user })
+    res.status(200).render('users/profile', {
+      title: 'Thông tin tài khoản người dùng',
+      user,
+      flash: req.flash('success')
+    })
   },
 
   lockAcc: async (req, res) => {
-    const userID = req.params.id
-    console.log('lock is caleed')
-    await User.lock(userID)
+    await User.lock(req.params.id)
+    req.flash('success', 'Khóa tài khoản thành công.')
     res.redirect('back')
   },
 
   unlockAcc: async (req, res) => {
-    const userID = req.params.id
-    console.log('unlock is caleed')
-    await User.unlock(userID)
+    await User.unlock(req.params.id)
+    req.flash('success', 'Mở khóa tài khoản thành công.')
     res.redirect('back')
   },
 
@@ -38,6 +40,7 @@ module.exports = {
     user.phone = req.body.phone
     user.gender = req.body.gender
     user.save()
+    req.flash('success', 'Thay đổi thông tin thành công')
     res.redirect('back')
   }
 }

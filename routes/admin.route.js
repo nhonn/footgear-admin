@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const ctrl = require('../controllers/admin.controller')
 
-router.route('/')
+router
+  .route('/')
   .get(ctrl.getProfile)
   .post(ctrl.updateProfile)
 

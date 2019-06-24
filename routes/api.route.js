@@ -7,7 +7,7 @@ router.get('/signin', ctrl.getSigninPage)
 router.post(
   '/signin',
   passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/',
     failureRedirect: '/api/signin',
     failureFlash: true
   })

@@ -4,7 +4,6 @@ const User = require('../models/user.model')
 const Order = require('../models/order.model')
 
 module.exports = {
-
   getHomepage: async (req, res) => {
     const products = await Product.countActiveItems()
     const users = await User.countActiveUsers()
@@ -19,6 +18,6 @@ module.exports = {
   },
 
   getProfilePage: (req, res) => {
-    res.status(200).render('profile', { title: 'Thông tin tài khoản' })
+    res.status(200).render('account/profile', { title: 'Thông tin tài khoản' })
   }
 }

@@ -1,9 +1,11 @@
 const Admin = require('../models/admin.model')
-const bcrypt = require('bcrypt')
 
 module.exports = {
   getProfile: async (req, res) => {
-    res.status(200).render('profile', { title: 'Thông tin tài khoản', flash: req.flash() })
+    res.status(200).render('account/profile', {
+      title: 'Thông tin tài khoản',
+      flash: req.flash()
+    })
   },
 
   updateProfile: async (req, res) => {
